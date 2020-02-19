@@ -41,6 +41,8 @@ public class EtsyTests {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.etsy.android:id/btn_link")));
         WebElement getStarted = driver.findElement(By.id("com.etsy.android:id/btn_link"));
         getStarted.click();
+        //to resolve NoSuchElementException, we need to add explicit wait
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.etsy.android:id/edit_username")));
         //username input box
         WebElement usernameElement = driver.findElementById("com.etsy.android:id/edit_username");
         //password input box
