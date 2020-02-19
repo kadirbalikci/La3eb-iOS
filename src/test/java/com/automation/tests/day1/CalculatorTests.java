@@ -18,7 +18,9 @@ import java.net.URL;
  * Before running the test, close inspector
  */
 public class CalculatorTests {
-    private AndroidDriver<MobileElement> driver;
+    // <TypeOfElement> MobileElement, AndroidElement, WebElement
+    //WebElement -
+    private AndroidDriver<WebElement> driver;
 
     @Test
     public void test1() throws Exception {
@@ -75,6 +77,22 @@ public class CalculatorTests {
         getDigit(6).click();
 
         Assert.assertEquals("11", result.getText());
+        //before clicking equals, make sure that formula and result are displayed
+
+        getDigit(1).click();
+        getDigit(0).click();
+        minus.click();
+        getDigit(5).click();
+        plus.click();
+        getDigit(6).click();
+//java.lang.ClassCastException: class org.openqa.selenium.remote.RemoteWebElement cannot be cast to class io.appium.java_client.MobileElement
+// (org.openqa.selenium.remote.RemoteWebElement and io.appium.java_client.MobileElement are in unnamed module of loader 'app')
+//        it means that we are trying to convert wem element into mobile element or action that we are trying to do is not available for mobile element
+        boolean actualFormulaVisibilityStatus = Boolean.parseBoolean(driver.findElementById("com.android.calculator2:id/formula").getAttribute("displayed"));
+
+        Assert.assertTrue("Formula is not visible!", actualFormulaVisibilityStatus);
+        Assert.assertTrue("Result is not visible!", driver.findElementById("com.android.calculator2:id/result").isDisplayed());
+        System.out.println(driver.findElementById("com.android.calculator2:id/formula").getAttribute("displayed"));
 
 
         Thread.sleep(3000);
