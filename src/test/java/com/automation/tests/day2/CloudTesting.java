@@ -21,6 +21,7 @@ public class CloudTesting {
     //appium server and device is on cloud, we don't need local one.
     public static String URL = "https://"+userName+":"+accessKey+"@hub-cloud.browserstack.com/wd/hub";
     private AppiumDriver driver;
+    //my etsy account
     private String email = "areatha@uspeakw.com";
     private String password = "Cybertek2020";
 
@@ -60,15 +61,9 @@ public class CloudTesting {
         //sign in button
         WebElement signinElement = driver.findElementById("com.etsy.android:id/button_signin");
 
-        usernameElement.sendKeys(userName);
+        usernameElement.sendKeys(email);
         passwordElement.sendKeys(password);
         signinElement.click();
-
-
-
-
-
-
 
 
 
