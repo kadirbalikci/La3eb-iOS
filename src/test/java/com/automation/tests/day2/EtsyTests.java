@@ -34,6 +34,7 @@ public class EtsyTests {
         desiredCapabilities.setCapability("platformVersion", "7.0");
         desiredCapabilities.setCapability("deviceName", "Pixel_2");
         desiredCapabilities.setCapability("automationName", "UiAutomator2");
+        //appium will automatically install app before testing
         desiredCapabilities.setCapability("app", "https://cybertek-appium.s3.amazonaws.com/etsy.apk");
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
         WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -56,7 +57,7 @@ public class EtsyTests {
 
 
 
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         driver.closeApp();
         driver.quit();
 
