@@ -58,6 +58,24 @@ public class CalculatorTests {
 
         Assert.assertEquals("34", actual);
 
+        //2 * 2 = 4
+        getDigit(2).click();//click on 2
+        multiply.click();
+        getDigit(2).click();//click on 2
+        equals.click();
+        Assert.assertEquals("4", result.getText());
+
+        //10 - 5 + 6 = 11
+
+        getDigit(1).click();
+        getDigit(0).click();
+        minus.click();
+        getDigit(5).click();
+        plus.click();
+        getDigit(6).click();
+
+        Assert.assertEquals("11", result.getText());
+
 
         Thread.sleep(3000);
         driver.closeApp();
