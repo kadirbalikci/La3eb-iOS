@@ -13,7 +13,10 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
-//10 minutes break
+
+/**
+ * Before running the test, close inspector
+ */
 public class CalculatorTests {
     private AndroidDriver<MobileElement> driver;
 
@@ -34,6 +37,13 @@ public class CalculatorTests {
         WebElement equals = driver.findElementByAccessibilityId("equals");
         WebElement result = driver.findElementById("com.android.calculator2:id/result");
 
+        WebElement minus = driver.findElement(MobileBy.AccessibilityId("minus"));
+        WebElement multiply = driver.findElement(MobileBy.AccessibilityId("multiply"));
+        WebElement divide = driver.findElement(MobileBy.AccessibilityId("divide"));
+//        WebElement delete = driver.findElement(MobileBy.AccessibilityId("delete"));
+        WebElement delete = driver.findElementByAccessibilityId("delete");
+
+
         digit1.click();//click on 1
         digit2.click();//click on 2
 
@@ -47,7 +57,6 @@ public class CalculatorTests {
         String actual = result.getText();//get text of result
 
         Assert.assertEquals("34", actual);
-
 
 
         Thread.sleep(3000);
