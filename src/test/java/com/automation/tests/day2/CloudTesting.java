@@ -3,7 +3,12 @@ package com.automation.tests.day2;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 
@@ -22,8 +27,8 @@ public class CloudTesting {
         //these capabilities are specific to browserstack
         //you will not use them when you would try to connect to the appium server directly
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("device", "Google Pixel 4");
-        desiredCapabilities.setCapability("os_version", "10.0");
+        desiredCapabilities.setCapability("device", "Google Pixel 3 XL");
+        desiredCapabilities.setCapability("os_version", "9.0");
         desiredCapabilities.setCapability("project", "Calculator");
         desiredCapabilities.setCapability("build", "My First Build");
         desiredCapabilities.setCapability("name", "Calculator Test");
@@ -34,11 +39,24 @@ public class CloudTesting {
         //break 10 minutes
         desiredCapabilities.setCapability("app", "bs://4f2361071a8857b7ecf08eb9ccae8325c879b2b9");
         driver = new AndroidDriver(new URL(URL), desiredCapabilities);
+        //the biggest problem of selenium is synchronization.
+        //basically, it doesn't wait
+        //if element will delay to appear, you will get NoSuchElementException
+        //to prevent this issue, we can use explicit wait
+        //don't use explicit and implicit waits together!
+        //how to use explicit wait in appium?
+        //in the same way like in selenium
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.etsy.android:id/btn_link")));
+        WebElement getStarted = driver.findElement(By.id("com.etsy.android:id/btn_link"));
+        getStarted.click();
 
 
 
         Thread.sleep(5000);
         driver.closeApp();
+        driver.quit();
 
     }
 }
