@@ -21,6 +21,8 @@ public class CloudTesting {
     //appium server and device is on cloud, we don't need local one.
     public static String URL = "https://"+userName+":"+accessKey+"@hub-cloud.browserstack.com/wd/hub";
     private AppiumDriver driver;
+    private String email = "areatha@uspeakw.com";
+    private String password = "Cybertek2020";
 
     @Test
     public void test1() throws Exception{
@@ -47,10 +49,26 @@ public class CloudTesting {
         //how to use explicit wait in appium?
         //in the same way like in selenium
         WebDriverWait wait = new WebDriverWait(driver, 15);
-
+        //wait for get started button
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.etsy.android:id/btn_link")));
         WebElement getStarted = driver.findElement(By.id("com.etsy.android:id/btn_link"));
         getStarted.click();
+        //username input box
+        WebElement usernameElement = driver.findElementById("com.etsy.android:id/edit_username");
+        //password input box
+        WebElement passwordElement = driver.findElementById("com.etsy.android:id/edit_password");
+        //sign in button
+        WebElement signinElement = driver.findElementById("com.etsy.android:id/button_signin");
+
+        usernameElement.sendKeys(userName);
+        passwordElement.sendKeys(password);
+        signinElement.click();
+
+
+
+
+
+
 
 
 
