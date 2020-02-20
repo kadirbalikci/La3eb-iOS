@@ -37,10 +37,18 @@ public class MobileWebTestAutomation {
         desiredCapabilities.setCapability(CapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
         desiredCapabilities.setCapability("w3c", true);
 
+        //change version based on the version of chrome browser
         WebDriverManager.chromedriver().version("2.23").setup();
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, WebDriverManager.chromedriver().getBinaryPath());
         //chrome options are used to parametrize chrome browser during test execution
         //you can use chrome option with desktop browser too
+        //chrome options can be used to maximize browser,
+        //disable popups
+        //change save directory
+        //set headless mode
+        //enable proxy server
+        //add extensions
+
         ChromeOptions chromeOptions = new ChromeOptions();
         //ignore SSL issues
         chromeOptions.setAcceptInsecureCerts(true);
