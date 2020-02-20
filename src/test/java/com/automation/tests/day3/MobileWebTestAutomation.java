@@ -1,6 +1,7 @@
 package com.automation.tests.day3;
 
 import io.appium.java_client.remote.MobileBrowserType;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -41,6 +42,15 @@ public class MobileWebTestAutomation {
         driver.findElement(By.id("user_login")).sendKeys("username");
         driver.findElement(By.id("user_password")).sendKeys("password", Keys.ENTER);
 
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        //wait for board presence
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".board")));
+
+        Assert.assertEquals(driver.findElement(By.className("brand")).getText(),"Zero Bank");
+
+        //click on Online Statements
+        driver.findElement(By.linkText("Online Statements")).click();
 
         Thread.sleep(5000);
         driver.quit();
