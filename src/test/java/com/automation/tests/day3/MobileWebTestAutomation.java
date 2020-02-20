@@ -35,24 +35,13 @@ public class MobileWebTestAutomation {
         desiredCapabilities.setCapability("automationName", "UiAutomator2");
         desiredCapabilities.setCapability(CapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
         driver = new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
-        driver.get("http://qa1.vytrack.com");
-        Thread.sleep(5000);
-        driver.findElement(By.id("prependedInput")).sendKeys("storemanager85");
-        driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123", Keys.ENTER);
-
-
+        driver.get("http://zero.webappsecurity.com/login.html");
         Thread.sleep(5000);
 
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        try {
-            wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("div[class='loader-mask shown']"))));
-        } catch (Exception e) {
-            Thread.sleep(2000);
-            e.printStackTrace();
-        }
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("main-menu-toggle")));
-        WebElement toggle = wait.until(ExpectedConditions.elementToBeClickable(By.id("main-menu-toggle")));
-        toggle.click();
+        driver.findElement(By.id("user_login")).sendKeys("username");
+        driver.findElement(By.id("user_password")).sendKeys("password");
+
+
 
         Thread.sleep(5000);
         driver.quit();
