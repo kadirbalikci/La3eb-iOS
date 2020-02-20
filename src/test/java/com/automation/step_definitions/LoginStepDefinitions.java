@@ -1,6 +1,7 @@
 package com.automation.step_definitions;
 
 import com.automation.pages.LoginPage;
+import com.automation.utilities.MobileUtilities;
 import io.cucumber.java.en.*;
 
 public class LoginStepDefinitions {
@@ -13,7 +14,8 @@ public class LoginStepDefinitions {
 
     @When("user logs in with etsy credentials")
     public void user_logs_in_with_etsy_credentials() {
-
+        loginPage.login();
+        MobileUtilities.wait(10);
     }
 
     @Then("user verifies that etsy logo is displayed")
