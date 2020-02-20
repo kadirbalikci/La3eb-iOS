@@ -27,7 +27,7 @@ public class MobileWebTestAutomation {
      * For testing, we will use vytrack
      */
     @Test
-    public void test1() throws Exception{
+    public void test1() throws Exception {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", Platform.ANDROID);
         desiredCapabilities.setCapability("platformVersion", "7.0");
@@ -44,7 +44,12 @@ public class MobileWebTestAutomation {
         Thread.sleep(5000);
 
         WebDriverWait wait = new WebDriverWait(driver, 20);
-
+        try {
+            wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("div[class='loader-mask shown']"))));
+        } catch (Exception e) {
+            Thread.sleep(2000);
+            e.printStackTrace();
+        }
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("main-menu-toggle")));
         WebElement toggle = wait.until(ExpectedConditions.elementToBeClickable(By.id("main-menu-toggle")));
         toggle.click();
