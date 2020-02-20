@@ -36,7 +36,7 @@ public class MobileWebTestAutomation {
         desiredCapabilities.setCapability(CapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
         desiredCapabilities.setCapability("w3c", true);
 
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().version("2.23").setup();
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, WebDriverManager.chromedriver().getBinaryPath());
 
 
@@ -52,7 +52,7 @@ public class MobileWebTestAutomation {
         //wait for board presence
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".board")));
 
-        Assert.assertTrue(driver.findElement(By.className("brand")).isDisplayed());
+//        Assert.assertTrue(driver.findElement(By.className("brand")).isDisplayed());
         Assert.assertEquals(driver.findElement(By.className("brand")).getText(),"Zero Bank");
 
         //click on Online Statements
