@@ -15,7 +15,7 @@ public class LoginStepDefinitions {
     @When("user logs in with etsy credentials")
     public void user_logs_in_with_etsy_credentials() {
         loginPage.login();
-        MobileUtilities.wait(10);
+        MobileUtilities.wait(10);//for demo
     }
 
     @Then("user verifies that etsy logo is displayed")
