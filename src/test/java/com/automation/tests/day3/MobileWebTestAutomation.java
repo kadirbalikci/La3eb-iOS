@@ -3,6 +3,7 @@ package com.automation.tests.day3;
 import io.appium.java_client.remote.MobileBrowserType;
 import org.junit.Test;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.*;
@@ -26,7 +27,7 @@ public class MobileWebTestAutomation {
         desiredCapabilities.setCapability("platformVersion", "7.0");
         desiredCapabilities.setCapability("deviceName", "Pixel_2");
         desiredCapabilities.setCapability("automationName", "UiAutomator2");
-        desiredCapabilities.setCapability("browser", MobileBrowserType.CHROME);
+        desiredCapabilities.setCapability(CapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
         driver = new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
         driver.get("http://qa1.vytrack.com");
         Thread.sleep(5000);
