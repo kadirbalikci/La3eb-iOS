@@ -5,9 +5,13 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.net.*;
 
 public class MobileWebTestAutomation {
@@ -39,7 +43,11 @@ public class MobileWebTestAutomation {
 
         Thread.sleep(5000);
 
-        driver.findElement(By.id("main-menu-toggle")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("main-menu-toggle")));
+        WebElement toggle = wait.until(ExpectedConditions.elementToBeClickable(By.id("main-menu-toggle")));
+        toggle.click();
 
         Thread.sleep(5000);
         driver.quit();
