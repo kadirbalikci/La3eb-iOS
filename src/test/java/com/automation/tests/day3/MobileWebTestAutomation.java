@@ -6,6 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -38,7 +39,13 @@ public class MobileWebTestAutomation {
 
         WebDriverManager.chromedriver().version("2.23").setup();
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, WebDriverManager.chromedriver().getBinaryPath());
-
+        //chrome options are used to parametrize chrome browser during test execution
+        //you can use chrome option with desktop browser too
+        ChromeOptions chromeOptions = new ChromeOptions();
+        //ignore SSL issues
+        chromeOptions.setAcceptInsecureCerts(true);
+        //to pass chrome options to the desired capabilities
+        desiredCapabilities.setCapability(AndroidMobileCapabilityType.CHROME_OPTIONS, chromeOptions);
 
         driver = new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
         driver.get("http://zero.webappsecurity.com/login.html");
