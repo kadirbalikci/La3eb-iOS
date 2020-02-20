@@ -39,8 +39,7 @@ public class MobileWebTestAutomation {
         Thread.sleep(5000);
 
         driver.findElement(By.id("user_login")).sendKeys("username");
-        driver.findElement(By.id("user_password")).sendKeys("password");
-
+        driver.findElement(By.id("user_password")).sendKeys("password", Keys.ENTER);
 
 
         Thread.sleep(5000);
