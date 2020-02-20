@@ -7,8 +7,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.*;
 
-import javax.print.DocFlavor;
-
 public class MobileWebTestAutomation {
     //for mobile web automation, we don't use appium drivers
     //we just use WebDriver or RemoteWebDriver
