@@ -3,5 +3,6 @@ Feature: Login feature
   and facebook accounts.
 
   Scenario: Login with etsy credentials (positive)
-    Given user logs in with etsy credentials
+    Given use clicks on get started
+    When user logs in with etsy credentials
     Then user verifies that etsy logo is displayed
