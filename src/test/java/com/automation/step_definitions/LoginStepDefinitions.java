@@ -17,19 +17,13 @@ public class LoginStepDefinitions {
 
     @Given("should proceed to the login screen")
     public void should_proceed_to_the_login_screen() throws InterruptedException {
-        Thread.sleep(3000);
         Driver.get().findElement(By.xpath("//XCUIElementTypeButton[@name=\"Allow\"]")).click();
-        Thread.sleep(3000);
 
         Driver.get().findElementByAccessibilityId("OnboardingLoginView.informationLabel").click();
-        Thread.sleep(3000);
         Driver.get().findElementByAccessibilityId("LoginOptionsController.emailButton").click();
-        Thread.sleep(3000);
         Driver.get().findElementByAccessibilityId("EmailOrUsernameInputCell.emailOrUsernameTextField").click();
-        Thread.sleep(3000);
         Driver.get().findElementByAccessibilityId("EmailOrUsernameInputCell.emailOrUsernameTextField").sendKeys("kadirbalikci@hotmail.com");
         Driver.get().findElementByAccessibilityId("PasswordInputCell.passwordTextField").click();
-        Thread.sleep(3000);
         Driver.get().findElementByAccessibilityId("PasswordInputCell.passwordTextField").sendKeys("987D412w");
         Driver.get().findElementByAccessibilityId("LoginButtonCell.loginButton").click();
 
@@ -37,17 +31,14 @@ public class LoginStepDefinitions {
 
     @When("should proceed to Profile screen")
     public void should_proceed_to_Profile_screen() throws InterruptedException {
-        Thread.sleep(3000);
         Driver.get().findElementByAccessibilityId("DiscoverViewController.doneButton").click();
-        Thread.sleep(3000);
         Driver.get().findElementByAccessibilityId("BadgeBarButtonItem.notificationBarButton").click();
-        Thread.sleep(3000);
 
         Driver.get().findElement(By.xpath("//XCUIElementTypeApplication[@name=\"La3eb\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[2]")).click();
-        Thread.sleep(3000);
+
+        Driver.get().findElementByAccessibilityId("ImageViewCollectionCell.imageView").click();
 
         Driver.get().findElementByAccessibilityId("More").click();
-        Thread.sleep(3000);
 
         Driver.get().findElementByAccessibilityId("Profile").click();
 
@@ -73,39 +64,6 @@ public class LoginStepDefinitions {
 
 
     /*
-
-        it('should proceed to the login screen', () => {
-                driver.pause(1000);
-        onboardingPage.signInButton.waitForDisplayed();
-        onboardingPage.signInButton.click();
-
-        it('should proceed to the email login screen', () => {
-                driver.pause(1000);
-        loginPage.emailButton.click();
-
-        it('should enable login button when username and password is entered correctly', () => {
-                driver.pause(1000);
-        loginPage.emailOrUsernameTextField.setValue(ios_username);
-
-        loginPage.passwordTextField.setValue(ios_password);
-
-        loginPage.loginButton.waitForEnabled();
-        loginPage.loginButton.click();
-
-        it('should dismiss onboarding screen', () => {
-                driver.pause(1000);
-        globalPage.skipButton.waitForDisplayed();
-        globalPage.skipButton.click();
-
-        it('should succesfully login when pressed Login Button', () => {
-                driver.pause(1000);
-        globalPage.notificationButton.waitForDisplayed();
-
-        it('should proceed to Profile screen', () => {
-                globalPage.profileButton.click();
-
-        it('should open profile settings', () => {
-                gamerProfilePage.settingsButton.click();
 
         it('should select profile', () => {
                 $(accountSettingsPage.settingsCell + "1").click();
