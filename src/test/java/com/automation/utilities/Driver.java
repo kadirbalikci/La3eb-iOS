@@ -21,7 +21,7 @@ public class Driver {
                     desiredCapabilities.setCapability("platformVersion", "13.6");
                     desiredCapabilities.setCapability("deviceName", "iPhone 11");
                     desiredCapabilities.setCapability("automationName", "XCUITest");
-                    desiredCapabilities.setCapability("app", "/Users/kadirbalikci/Library/Developer/Xcode/DerivedData/Mec-axtbuuxtpsppqwccsitocvzelmxj/Build/Products/Debug-iphonesimulator/La3eb.app");
+                    desiredCapabilities.setCapability("app", "/Users/macbookpro/Library/Developer/Xcode/DerivedData/Mec-bubsqxrflqktfxcvrpoyatrhwork/Build/Products/Debug-iphonesimulator/La3eb.app");
 
                     try {
                         driver = new IOSDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
