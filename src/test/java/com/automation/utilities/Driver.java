@@ -2,6 +2,7 @@ package com.automation.utilities;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -16,13 +17,15 @@ public class Driver {
             switch (platform) {
                 case "android":
                     DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-                    desiredCapabilities.setCapability("platformName", "Android");
-                    desiredCapabilities.setCapability("platformVersion", "7.0");
-                    desiredCapabilities.setCapability("deviceName", "Pixel_2");
-                    desiredCapabilities.setCapability("automationName", "UiAutomator2");
-                    desiredCapabilities.setCapability("app", ConfigurationReader.get("android.app.url"));
+                    desiredCapabilities.setCapability("platformName", "iOS");
+                    desiredCapabilities.setCapability("platformVersion", "13.6");
+                    desiredCapabilities.setCapability("deviceName", "iPhone 11");
+                    desiredCapabilities.setCapability("automationName", "XCUITest");
+                    desiredCapabilities.setCapability("app", "/Users/kadirbalikci/Library/Developer/Xcode/DerivedData/Mec-axtbuuxtpsppqwccsitocvzelmxj/Build/Products/Debug-iphonesimulator/La3eb.app");
+
                     try {
-                        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
+                        driver = new IOSDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
+                               // AndroidDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }

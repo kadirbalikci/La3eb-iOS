@@ -2,7 +2,9 @@ Feature: Login feature
   As user, I want to be able to log in with etsy account, as well as with google
   and facebook accounts.
 
-  Scenario: Login with etsy credentials (positive)
-    Given use clicks on get started
-    When user logs in with etsy credentials
-    Then user verifies that etsy logo is displayed
+  @wip
+  Scenario: User Can Edit the profile
+    Given should proceed to the login screen
+    When should proceed to Profile screen
+    Then should open profile settings and edit
+
