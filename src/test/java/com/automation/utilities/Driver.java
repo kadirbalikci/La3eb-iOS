@@ -15,7 +15,7 @@ public class Driver {
         if (driver == null) {
             String platform = ConfigurationReader.get("platform");
             switch (platform) {
-                case "android":
+                case "iOS":
                     DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                     desiredCapabilities.setCapability("platformName", "iOS");
                     desiredCapabilities.setCapability("platformVersion", "13.6");
