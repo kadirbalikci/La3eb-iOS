@@ -8,7 +8,7 @@ Feature: Registered user tests
 #    Then user click on skip for discover la3eb
 #    And click on screen
 
-
+  @wip
   Scenario: survey can be filled by the newly registered user
     Then user clicks on Sign up button
     And user fill credentials and select T&C

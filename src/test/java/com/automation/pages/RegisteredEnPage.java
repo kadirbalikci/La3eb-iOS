@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 public class RegisteredEnPage {
 
 
-    @FindBy(id = "OnboardingLoginView.signUpButton")
+    @FindBy(name = "Sign up")
     public MobileElement signUpButton;
 
     @FindBy(id = "EmailInputCell.emailTextField")
