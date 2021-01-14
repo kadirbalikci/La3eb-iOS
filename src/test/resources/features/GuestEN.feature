@@ -1,6 +1,6 @@
 @guestEn
-Feature: Guest tests
-  As a guest User add items to wishlist
+Feature: Guest user tests
+  As a guest User
 
   Background:
     Given user should continue as a guest
@@ -27,14 +27,15 @@ Feature: Guest tests
     Then user navigates back to Connect
     And verify the user should see the channels
 
-
-#  Scenario: guest user can enter billing address to purchase product
-#    Then user navigates PDP
-#    And user add product to cart
-#    Then user navigates to cart and clicks checkout
-#    And user should fill address details and clicks continue
-#    Then user choose payment method and clicks continue
-#    And user fill card details and clicks confirm order
+  @wip
+  Scenario: guest user can enter billing address to purchase product
+    Then user navigates PDP
+    And user add product to cart
+    Then user navigates to cart and clicks checkout
+    And user should fill address details and clicks continue
+    Then user choose "CC" payment method
+    And user clicks continue to next step
+    And user fill card details and clicks confirm order
 
 
 #  Scenario: guest user can filter Games
@@ -50,11 +51,23 @@ Feature: Guest tests
     Then user click on view all button
     And verify the user should see the game
 
-#  @wip
-#  Scenario: guest user can see shipping fee and COD fee
-#    Then user should navigate to shop
-#    Then user navigates PDP
-#    And user add product to cart
-#    Then user navigates to cart and clicks checkout
+
+  Scenario: guest user can see shipping fee and COD fee
+    Then user navigates PDP
+    And user add product to cart
+    Then user navigates to cart and clicks checkout
 #    And user should fill address details and clicks continue
-#    Then user choose "COD" payment method and clicks continue
+#    Then user choose "COD" payment method
+#    And verify the user should see shopping fee and COD fee
+
+
+  Scenario: guest user can visit PLP
+    Then user should navigate to shop
+    And user should choose category for PLP
+    Then verify the user on PLP
+
+
+  Scenario: guest user can proceed as a Guest User
+    Then verify the user proceed as a guest user
+
+
