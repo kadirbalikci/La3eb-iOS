@@ -1,4 +1,4 @@
-package com.automation.step_definitions.guest;
+package com.automation.step_definitions;
 
 import com.automation.pages.BasePage;
 import com.automation.pages.GuestEnPage;
@@ -10,9 +10,8 @@ import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
 
-import java.net.MalformedURLException;
 
-public class guestAddsItemsToWishlistFromCart extends BasePage{
+public class GuestUserEnStepDefinitions extends BasePage{
 
     Actions action = new Actions(Driver.get());
     GuestEnPage guestEnPage = new GuestEnPage();
@@ -120,21 +119,18 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
 
 
         MobileUtilities.wait(1);
-        guestEnPage.country.sendKeys(ConfigurationReader.get("country"));
-        guestEnPage.city.sendKeys(ConfigurationReader.get("city"));
-        guestEnPage.district.sendKeys(ConfigurationReader.get("district"));
+        //guestEnPage.country.sendKeys(ConfigurationReader.get("country"));
+        guestEnPage.city.click();
+        MobileUtilities.wait(5);
+        guestEnPage.citySelection.click();
+        MobileUtilities.wait(5);
+        guestEnPage.districtSelection.click();
+
+//        guestEnPage.city.sendKeys(ConfigurationReader.get("city"));
+//        guestEnPage.district.sendKeys(ConfigurationReader.get("district"));
         guestEnPage.street.sendKeys(ConfigurationReader.get("street"));
         MobileUtilities.wait(2);
         guestEnPage.continueToNextStep.click();
-
-    }
-
-    @Then("user choose payment method and clicks continue")
-    public void user_choose_payment_method_and_clicks_continue() {
-        MobileUtilities.wait(2);
-        guestEnPage.ccPaymentMethod.click();
-        MobileUtilities.wait(2);
-        guestEnPage.continueToNext.click();
 
     }
 
@@ -195,16 +191,52 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
         Assert.assertTrue(guestEnPage.searchResults.isDisplayed());
     }
 
-    @Then("user choose {string} payment method and clicks continue")
+    @Then("user choose {string} payment method")
     public void user_choose_payment_method_and_clicks_continue(String paymentMethod) {
+        MobileUtilities.wait(5);
 
         switch (paymentMethod){
         case "COD":
-
+            guestEnPage.codPayment.click();
             break;
-
+        case "CC":
+            guestEnPage.ccPayment.click();
+            break;
         }
     }
 
+    @Then("user clicks continue to next step")
+    public void user_clicks_continue_to_next_step() {
+        MobileUtilities.wait(2);
+        guestEnPage.continueToNext.click();
+    }
+
+    @Then("verify the user should see shopping fee and COD fee")
+    public void verify_the_user_should_see_shopping_fee_and_COD_fee() {
+        MobileUtilities.wait(1);
+        Assert.assertTrue(guestEnPage.subtotal.isDisplayed());
+        Assert.assertTrue(guestEnPage.subtotal.isDisplayed());
+    }
+
+    @Then("user should choose category for PLP")
+    public void user_should_choose_category_for_PLP() {
+        guestEnPage.firstPLP.click();
+
+    }
+
+    @Then("verify the user on PLP")
+    public void verify_the_user_on_PLP() {
+        MobileUtilities.wait(2);
+        Assert.assertTrue(guestEnPage.headerPLP.isDisplayed());
+    }
+
+    @Then("verify the user proceed as a guest user")
+    public void verify_the_user_proceed_as_a_guest_user() {
+        MobileUtilities.wait(5);
+        System.out.println("guestEnPage.homePage.isDisplayed() = " + guestEnPage.homePage.isDisplayed());
+//        System.out.println("guestEnPage.homePage2.isDisplayed() = " + guestEnPage.homePage2.isDisplayed());
+        System.out.println("searchBox = " + searchBox.isDisplayed());
+        //Assert.assertTrue(guestEnPage.homePage.isDisplayed());
+    }
 
 }

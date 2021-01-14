@@ -79,8 +79,15 @@ public class GuestEnPage extends BasePage{
     @FindBy(id = "ShippingAddressCell.countryTextField")
     public MobileElement country;
 
+
     @FindBy(id = "ShippingAddressCell.cityTextField")
     public MobileElement city;
+
+    @FindBy(id = "SearchableItemTableViewCell.0")
+    public MobileElement citySelection;
+
+    @FindBy(id = "SearchableItemTableViewCell.0")
+    public MobileElement districtSelection;
 
     @FindBy(id = "ShippingAddressCell.districtTextField")
     public MobileElement district;
@@ -90,9 +97,6 @@ public class GuestEnPage extends BasePage{
 
     @FindBy(id = "ShippingController.$__lazy_storage_$_nextStepButton")
     public MobileElement continueToNextStep;
-
-    @FindBy(id = "PaymentController.PaymentMethodCell.0")
-    public MobileElement ccPaymentMethod;
 
     @FindBy(id = "OrderConfirmView.confirmOrderButton")
     public  MobileElement continueToNext;
@@ -138,5 +142,27 @@ public class GuestEnPage extends BasePage{
 
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Credit\"]" )
     public MobileElement ccPayment;
+
+    @FindBy(id = "OrderConfirmView.subTotalDescriptionLabel")
+    public MobileElement subtotal;
+
+    @FindBy(id = "OrderConfirmView.codTitleLabel")
+    public MobileElement codFee;
+
+    @FindBy(id = "GradientImageCell.titleLabel")
+    public MobileElement firstPLP;
+
+    @FindBy(id = "HeaderView.titleLabel")
+    public MobileElement headerPLP;
+
+    @FindBy(className = "UITableTextAccessibilityElement")
+    public MobileElement homePage;
+
+    @FindBy(id = "FeaturedCell.pageControl")
+    public MobileElement homePage2;
+
+
+
+
 
 }
