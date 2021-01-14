@@ -1,3 +1,4 @@
+@guestEn
 Feature: Guest tests
   As a guest User add items to wishlist
 
@@ -35,8 +36,25 @@ Feature: Guest tests
 #    Then user choose payment method and clicks continue
 #    And user fill card details and clicks confirm order
 
-  @wip
-  Scenario: guest user can filter Games
-    Then user should navigate to shop
+
+#  Scenario: guest user can filter Games
+#    Then user should navigate to shop
 #    Then user click on filter, choose games and apply filter
 #    And verify the user filtered games
+
+
+
+  Scenario: guest user can filter a Game
+    Then user should navigate to shop
+    And user searches game
+    Then user click on view all button
+    And verify the user should see the game
+
+#  @wip
+#  Scenario: guest user can see shipping fee and COD fee
+#    Then user should navigate to shop
+#    Then user navigates PDP
+#    And user add product to cart
+#    Then user navigates to cart and clicks checkout
+#    And user should fill address details and clicks continue
+#    Then user choose "COD" payment method and clicks continue

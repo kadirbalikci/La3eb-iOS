@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,6 +18,8 @@ public abstract class BasePage {
     public BasePage(){
         PageFactory.initElements(new AppiumFieldDecorator(Driver.get()), this);
     }
+
+    Actions actions = new Actions(Driver.get());
 
 
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Allow\"]")
@@ -36,6 +39,13 @@ public abstract class BasePage {
 
     @FindBy(id = "HomeController.Optional<UITextField>")
     public MobileElement searchBox;
+
+
+
+    public void homeShopBtn(){
+//        actions
+//        x=125 y=830
+    }
 
 
 

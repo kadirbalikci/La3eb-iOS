@@ -33,20 +33,15 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
     public void click_on_screen() {
 
         action.moveToElement(shop, 100, 250).click().build().perform();
-
-        MobileUtilities.wait(2);
-
+        MobileUtilities.wait(3);
     }
 
     @Then("user navigates PDP")
     public void user_navigates_PDP() {
-        //searchBox.click();
-        MobileUtilities.wait(1);
         searchBox.sendKeys(ConfigurationReader.get("sku"));
         MobileUtilities.wait(3);
         guestEnPage.selectProduct.click();
         MobileUtilities.wait(2);
-
     }
 
     @Then("user add product to cart")
@@ -63,6 +58,7 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
         guestEnPage.markFirstProduct.click();
         guestEnPage.addToWishlistFromCart.click();
     }
+
     @Then("user navigates back to wishlist from cart")
     public void user_navigates_back_to_wishlist_from_cart() {
         Assert.assertTrue(guestEnPage.addedWishlistTopUpMsg.isDisplayed());
@@ -87,6 +83,7 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
 
     @Then("verify product added to wishlist")
     public void verify_product_added_to_wishlist() {
+
         Assert.assertTrue(guestEnPage.wishlistItem.isDisplayed());
     }
 
@@ -115,7 +112,7 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
     }
 
     @Then("user should fill address details and clicks continue")
-    public void user_should_fill_address_details_and_clicks_continue() throws MalformedURLException {
+    public void user_should_fill_address_details_and_clicks_continue() {
         guestEnPage.firstName.sendKeys(ConfigurationReader.get("firstName"));
         guestEnPage.lastName.sendKeys(ConfigurationReader.get("lastName"));
         guestEnPage.email.sendKeys(ConfigurationReader.get("email2"));
@@ -164,8 +161,12 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
     public void user_click_on_filter_choose_games_and_apply_filter() {
         guestEnPage.filterButton.click();
         MobileUtilities.wait(2);
-        guestEnPage.gamesFilter.click();
-        MobileUtilities.wait(2);
+
+        action.moveByOffset(200,450).build();
+        action.click();
+
+        //action.moveByOffset( 200, 450).click().build().perform();
+        MobileUtilities.wait(5);
         guestEnPage.applyFilters.click();
 
     }
@@ -176,4 +177,34 @@ public class guestAddsItemsToWishlistFromCart extends BasePage{
         Assert.assertTrue(guestEnPage.sumOfFilter.isDisplayed());
 
     }
+
+    @Then("user searches game")
+    public void user_searches_game() {
+        guestEnPage.shopSearchBox.sendKeys(ConfigurationReader.get("gameName"));
+        MobileUtilities.wait(2);
+
+    }
+
+    @Then("user click on view all button")
+    public void user_click_on_view_all_button() {
+        guestEnPage.viewAllButton.click();
+    }
+
+    @Then("verify the user should see the game")
+    public void verify_the_user_should_see_the_game() {
+        Assert.assertTrue(guestEnPage.searchResults.isDisplayed());
+    }
+
+    @Then("user choose {string} payment method and clicks continue")
+    public void user_choose_payment_method_and_clicks_continue(String paymentMethod) {
+
+        switch (paymentMethod){
+        case "COD":
+
+            break;
+
+        }
+    }
+
+
 }

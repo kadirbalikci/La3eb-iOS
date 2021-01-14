@@ -121,7 +121,7 @@ public class GuestEnPage extends BasePage{
     @FindBy(id = "HeaderView.viewAllButton")
     public MobileElement viewAllButton;
 
-    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Games\"]") //check Coordinates
+    @FindBy(xpath = "//*[@text='Games']")
     public MobileElement gamesFilter;
 
     @FindBy(id = "BlueButton")
@@ -129,4 +129,14 @@ public class GuestEnPage extends BasePage{
 
     @FindBy(id = "(2)")
     public MobileElement sumOfFilter;
+
+    @FindBy(className = "UICollectionView")
+    public MobileElement searchResults;
+
+    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Cash On Delivery\"]")
+    public MobileElement codPayment;
+
+    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Credit\"]" )
+    public MobileElement ccPayment;
+
 }
