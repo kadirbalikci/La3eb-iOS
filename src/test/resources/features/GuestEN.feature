@@ -27,7 +27,7 @@ Feature: Guest user tests
     Then user navigates back to Connect
     And verify the user should see the channels
 
-  @wip
+
   Scenario: guest user can enter billing address to purchase product
     Then user navigates PDP
     And user add product to cart
@@ -38,10 +38,10 @@ Feature: Guest user tests
     And user fill card details and clicks confirm order
 
 
-#  Scenario: guest user can filter Games
-#    Then user should navigate to shop
-#    Then user click on filter, choose games and apply filter
-#    And verify the user filtered games
+  Scenario: guest user can filter Games
+    Then user should navigate to shop
+    Then user click on filter, choose games and apply filter
+    And verify the user filtered games
 
 
 
@@ -56,9 +56,9 @@ Feature: Guest user tests
     Then user navigates PDP
     And user add product to cart
     Then user navigates to cart and clicks checkout
-#    And user should fill address details and clicks continue
-#    Then user choose "COD" payment method
-#    And verify the user should see shopping fee and COD fee
+    And user should fill address details and clicks continue
+    Then user choose "COD" payment method
+    And verify the user should see shopping fee and COD fee
 
 
   Scenario: guest user can visit PLP

@@ -40,7 +40,11 @@ public abstract class BasePage {
     @FindBy(id = "HomeController.Optional<UITextField>")
     public MobileElement searchBox;
 
+    @FindBy(id = "OnboardingLoginView.signUpButton")
+    public MobileElement signUpButton;
 
+    @FindBy(id = "OnboardingLoginView.informationLabel")
+    public MobileElement signInButton;
 
     public void homeShopBtn(){
 //        actions

@@ -119,28 +119,28 @@ public class GuestEnPage extends BasePage{
     @FindBy(id = "DynamicPageController.Optional<UITextField>")
     public MobileElement shopSearchBox;
 
-    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"plp filter\"]")
+    @FindBy(name = "plp filter")
     public MobileElement filterButton;
 
     @FindBy(id = "HeaderView.viewAllButton")
     public MobileElement viewAllButton;
 
-    @FindBy(xpath = "//*[@text='Games']")
+    @FindBy(name = "Games")
     public MobileElement gamesFilter;
 
     @FindBy(id = "BlueButton")
     public MobileElement applyFilters;
 
-    @FindBy(id = "(2)")
-    public MobileElement sumOfFilter;
+    @FindBy(className = "UICollectionView")
+    public MobileElement filterResults;
 
     @FindBy(className = "UICollectionView")
     public MobileElement searchResults;
 
-    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Cash On Delivery\"]")
+    @FindBy(name = "Cash On Delivery")
     public MobileElement codPayment;
 
-    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Credit\"]" )
+    @FindBy(name = "Credit / Debit Card / mada bank card")
     public MobileElement ccPayment;
 
     @FindBy(id = "OrderConfirmView.subTotalDescriptionLabel")
@@ -161,7 +161,11 @@ public class GuestEnPage extends BasePage{
     @FindBy(id = "FeaturedCell.pageControl")
     public MobileElement homePage2;
 
+    @FindBy(id = "Next")
+    public MobileElement nextButton;
 
+    @FindBy(id = "SearchableItemTableViewCell.0")
+    public MobileElement countrySelection;
 
 
 

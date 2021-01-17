@@ -118,16 +118,14 @@ public class GuestUserEnStepDefinitions extends BasePage{
         guestEnPage.phoneNumber.sendKeys(ConfigurationReader.get("phoneNumber"));
 
 
-        MobileUtilities.wait(1);
-        //guestEnPage.country.sendKeys(ConfigurationReader.get("country"));
-        guestEnPage.city.click();
-        MobileUtilities.wait(5);
+        guestEnPage.nextButton.click();
+        MobileUtilities.wait(2);
+        guestEnPage.countrySelection.click();
+        MobileUtilities.wait(2);
         guestEnPage.citySelection.click();
-        MobileUtilities.wait(5);
+        MobileUtilities.wait(2);
         guestEnPage.districtSelection.click();
-
-//        guestEnPage.city.sendKeys(ConfigurationReader.get("city"));
-//        guestEnPage.district.sendKeys(ConfigurationReader.get("district"));
+        MobileUtilities.wait(2);
         guestEnPage.street.sendKeys(ConfigurationReader.get("street"));
         MobileUtilities.wait(2);
         guestEnPage.continueToNextStep.click();
@@ -158,11 +156,12 @@ public class GuestUserEnStepDefinitions extends BasePage{
         guestEnPage.filterButton.click();
         MobileUtilities.wait(2);
 
-        action.moveByOffset(200,450).build();
-        action.click();
+        guestEnPage.gamesFilter.click();
+//        action.moveByOffset(200,450).build();
+//        action.click();
 
         //action.moveByOffset( 200, 450).click().build().perform();
-        MobileUtilities.wait(5);
+        MobileUtilities.wait(2);
         guestEnPage.applyFilters.click();
 
     }
@@ -170,7 +169,7 @@ public class GuestUserEnStepDefinitions extends BasePage{
     @Then("verify the user filtered games")
     public void verify_the_user_filtered_games() {
         MobileUtilities.wait(2);
-        Assert.assertTrue(guestEnPage.sumOfFilter.isDisplayed());
+        Assert.assertTrue(guestEnPage.filterResults.isDisplayed());
 
     }
 
