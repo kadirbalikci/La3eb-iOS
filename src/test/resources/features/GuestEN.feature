@@ -8,7 +8,7 @@ Feature: Guest user tests
     And click on screen
 
 
-  Scenario: guest user add items to wishlist from cart
+  Scenario: Guest can add items to wishlist from the cart
     Then user navigates PDP
     And user add product to cart
     Then user adds item to wishlist
@@ -16,11 +16,24 @@ Feature: Guest user tests
     And verify product added to wishlist
 
 
-  Scenario: guest user add items to wishlist from PDP
+  Scenario: Guest can add items to wishlist from the PDP
     Then user navigates PDP
     And user click on add to wishlist button
     Then user navigates back to wishlist
     And verify product added to wishlist
+
+  @wip
+  Scenario: guest can change the language from settings
+    Then user will navigates to settings and changes language
+    And verify language changed
+
+#  Scenario: guest can sort games
+#  Scenario: guest user can visit PDP
+#  Scenario: guest user adds multiple products to cart and apply promo code
+#  Scenario: Guest user can access Connect
+#  Scenario: Guest user can access game channels
+#  Scenario: Guest user can enter billing details and purchase the order using COD
+#  Scenario: Guest user can purchase a virtual product using "Credit Cart" payment method, and check the payment details on order history
 
 
   Scenario: guest user should access game channels
@@ -70,4 +83,19 @@ Feature: Guest user tests
   Scenario: guest user can proceed as a Guest User
     Then verify the user proceed as a guest user
 
-
+#  T60128   Guest can add items to wishlist from the cart	 +
+#  T60127	Guest can add items to wishlist from the PDP	 +
+#  T60132	Guest can change the language from settings
+#  T60123	Guest can filter games
+#  T60133	Guest can search for other users and channels
+#  T60124	Guest can sort games
+#  T60125	Guest can visit PDP
+#  T60121	Guest can visit PLP
+#  T60126	Guest user adds multiple products to cart and apply promo code
+#  T60119	Guest user can access "Game Hub"
+#  T60120	Guest user can access game channels
+#  T60129	Guest user can enter billing details and purchase the order using COD
+#  T60130	Guest user can purchase a virtual product using "Credit Cart" payment method, and check the payment details on order history
+#  T60131	Guest user can see shipping fee and cash on delivery fee
+#  T60122	Guest user visits shop games category and search for games
+#  T60118	Proceed as Guest user

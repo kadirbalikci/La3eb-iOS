@@ -1,7 +1,9 @@
 package com.automation.step_definitions;
 
 import com.automation.pages.BasePage;
-import com.automation.pages.GuestEnPage;
+import com.automation.pages.ConnectPage;
+import com.automation.pages.MorePage;
+import com.automation.pages.ShopPage;
 import com.automation.utilities.ConfigurationReader;
 import com.automation.utilities.Driver;
 import com.automation.utilities.MobileUtilities;
@@ -14,7 +16,9 @@ import org.openqa.selenium.interactions.Actions;
 public class GuestUserEnStepDefinitions extends BasePage{
 
     Actions action = new Actions(Driver.get());
-    GuestEnPage guestEnPage = new GuestEnPage();
+    ConnectPage connectPage = new ConnectPage();
+    ShopPage shopPage = new ShopPage();
+    MorePage morePage = new MorePage();
 
     @Given("user should continue as a guest")
     public void user_should_continue_as_a_guest() {
@@ -39,56 +43,56 @@ public class GuestUserEnStepDefinitions extends BasePage{
     public void user_navigates_PDP() {
         searchBox.sendKeys(ConfigurationReader.get("sku"));
         MobileUtilities.wait(3);
-        guestEnPage.selectProduct.click();
+        shopPage.selectProduct.click();
         MobileUtilities.wait(2);
     }
 
     @Then("user add product to cart")
     public void user_add_product_to_cart() {
-        guestEnPage.addToCartButton.click();
+        shopPage.addToCartButton.click();
         MobileUtilities.wait(2);
-        guestEnPage.cart.click();
+        shopPage.cart.click();
     }
 
     @Then("user adds item to wishlist")
     public void user_adds_item_to_wishlist() {
         MobileUtilities.wait(2);
-        guestEnPage.editCart.click();
-        guestEnPage.markFirstProduct.click();
-        guestEnPage.addToWishlistFromCart.click();
+        shopPage.editCart.click();
+        shopPage.markFirstProduct.click();
+        shopPage.addToWishlistFromCart.click();
     }
 
     @Then("user navigates back to wishlist from cart")
     public void user_navigates_back_to_wishlist_from_cart() {
-        Assert.assertTrue(guestEnPage.addedWishlistTopUpMsg.isDisplayed());
-        guestEnPage.backToPDP.click();
-        guestEnPage.backSearchBox.click();
-        guestEnPage.cancelSearch.click();
+        Assert.assertTrue(shopPage.addedWishlistTopUpMsg.isDisplayed());
+        shopPage.backToPDP.click();
+        shopPage.backSearchBox.click();
+        shopPage.cancelSearch.click();
         MobileUtilities.wait(2);
-        guestEnPage.shop2.click();
-        guestEnPage.wishlistButton.click();
+        shopPage.shop2.click();
+        shopPage.wishlistButton.click();
     }
 
     @Then("user navigates back to wishlist")
     public void user_navigates_back_to_wishlist() {
-        Assert.assertTrue(guestEnPage.addedWishlistTopUpMsg.isDisplayed());
-        guestEnPage.backSearchBox.click();
-        guestEnPage.cancelSearch.click();
+        Assert.assertTrue(shopPage.addedWishlistTopUpMsg.isDisplayed());
+        shopPage.backSearchBox.click();
+        shopPage.cancelSearch.click();
         MobileUtilities.wait(2);
-        guestEnPage.shop2.click();
-        guestEnPage.wishlistButton.click();
+        shopPage.shop2.click();
+        shopPage.wishlistButton.click();
     }
 
 
     @Then("verify product added to wishlist")
     public void verify_product_added_to_wishlist() {
 
-        Assert.assertTrue(guestEnPage.wishlistItem.isDisplayed());
+        Assert.assertTrue(shopPage.wishlistItem.isDisplayed());
     }
 
     @Then("user click on add to wishlist button")
     public void user_click_on_add_to_wishlist_button() {
-        guestEnPage.getAddToWishlistFromPDP.click();
+        shopPage.getAddToWishlistFromPDP.click();
     }
 
     @Then("user navigates back to Connect")
@@ -98,48 +102,48 @@ public class GuestUserEnStepDefinitions extends BasePage{
 
     @Then("verify the user should see the channels")
     public void verify_the_user_should_see_the_channels() {
-        Assert.assertTrue(guestEnPage.secondChannel.isDisplayed());
+        Assert.assertTrue(connectPage.secondChannel.isDisplayed());
         MobileUtilities.wait(2);
-        guestEnPage.secondChannel.click();
+        connectPage.secondChannel.click();
         MobileUtilities.wait(2);
-        Assert.assertTrue(guestEnPage.gameImageConnect.isDisplayed());
+        Assert.assertTrue(connectPage.gameImageConnect.isDisplayed());
     }
 
     @Then("user navigates to cart and clicks checkout")
     public void user_navigates_to_cart_and_clicks_checkout() {
-        guestEnPage.checkout.click();
+        shopPage.checkout.click();
     }
 
     @Then("user should fill address details and clicks continue")
     public void user_should_fill_address_details_and_clicks_continue() {
-        guestEnPage.firstName.sendKeys(ConfigurationReader.get("firstName"));
-        guestEnPage.lastName.sendKeys(ConfigurationReader.get("lastName"));
-        guestEnPage.email.sendKeys(ConfigurationReader.get("email2"));
-        guestEnPage.phoneNumber.sendKeys(ConfigurationReader.get("phoneNumber"));
+        shopPage.firstName.sendKeys(ConfigurationReader.get("firstName"));
+        shopPage.lastName.sendKeys(ConfigurationReader.get("lastName"));
+        shopPage.email.sendKeys(ConfigurationReader.get("email2"));
+        shopPage.phoneNumber.sendKeys(ConfigurationReader.get("phoneNumber"));
 
 
-        guestEnPage.nextButton.click();
+        connectPage.nextButton.click();
         MobileUtilities.wait(2);
-        guestEnPage.countrySelection.click();
+        shopPage.countrySelection.click();
         MobileUtilities.wait(2);
-        guestEnPage.citySelection.click();
+        shopPage.citySelection.click();
         MobileUtilities.wait(2);
-        guestEnPage.districtSelection.click();
+        shopPage.districtSelection.click();
         MobileUtilities.wait(2);
-        guestEnPage.street.sendKeys(ConfigurationReader.get("street"));
+        shopPage.street.sendKeys(ConfigurationReader.get("street"));
         MobileUtilities.wait(2);
-        guestEnPage.continueToNextStep.click();
+        shopPage.continueToNextStep.click();
 
     }
 
     @Then("user fill card details and clicks confirm order")
     public void user_fill_card_details_and_clicks_confirm_order() {
-        guestEnPage.cardHolder.sendKeys(ConfigurationReader.get("cardName"));
-        guestEnPage.expDate.sendKeys(ConfigurationReader.get("cardExpiryDate"));
-        guestEnPage.cardNumber.sendKeys(ConfigurationReader.get("cardNumber"));
-        guestEnPage.cvv.sendKeys(ConfigurationReader.get("cardCVV"));
+        shopPage.cardHolder.sendKeys(ConfigurationReader.get("cardName"));
+        shopPage.expDate.sendKeys(ConfigurationReader.get("cardExpiryDate"));
+        shopPage.cardNumber.sendKeys(ConfigurationReader.get("cardNumber"));
+        shopPage.cvv.sendKeys(ConfigurationReader.get("cardCVV"));
 
-        guestEnPage.confirmOrder.click();
+        shopPage.confirmOrder.click();
 
         MobileUtilities.wait(5);
     }
@@ -153,41 +157,41 @@ public class GuestUserEnStepDefinitions extends BasePage{
 
     @Then("user click on filter, choose games and apply filter")
     public void user_click_on_filter_choose_games_and_apply_filter() {
-        guestEnPage.filterButton.click();
+        shopPage.filterButton.click();
         MobileUtilities.wait(2);
 
-        guestEnPage.gamesFilter.click();
+        shopPage.gamesFilter.click();
 //        action.moveByOffset(200,450).build();
 //        action.click();
 
         //action.moveByOffset( 200, 450).click().build().perform();
         MobileUtilities.wait(2);
-        guestEnPage.applyFilters.click();
+        shopPage.applyFilters.click();
 
     }
 
     @Then("verify the user filtered games")
     public void verify_the_user_filtered_games() {
         MobileUtilities.wait(2);
-        Assert.assertTrue(guestEnPage.filterResults.isDisplayed());
+        Assert.assertTrue(shopPage.filterResults.isDisplayed());
 
     }
 
     @Then("user searches game")
     public void user_searches_game() {
-        guestEnPage.shopSearchBox.sendKeys(ConfigurationReader.get("gameName"));
+        shopPage.shopSearchBox.sendKeys(ConfigurationReader.get("gameName"));
         MobileUtilities.wait(2);
 
     }
 
     @Then("user click on view all button")
     public void user_click_on_view_all_button() {
-        guestEnPage.viewAllButton.click();
+        shopPage.viewAllButton.click();
     }
 
     @Then("verify the user should see the game")
     public void verify_the_user_should_see_the_game() {
-        Assert.assertTrue(guestEnPage.searchResults.isDisplayed());
+        Assert.assertTrue(shopPage.searchResults.isDisplayed());
     }
 
     @Then("user choose {string} payment method")
@@ -196,10 +200,10 @@ public class GuestUserEnStepDefinitions extends BasePage{
 
         switch (paymentMethod){
         case "COD":
-            guestEnPage.codPayment.click();
+            shopPage.codPayment.click();
             break;
         case "CC":
-            guestEnPage.ccPayment.click();
+            shopPage.ccPayment.click();
             break;
         }
     }
@@ -207,35 +211,53 @@ public class GuestUserEnStepDefinitions extends BasePage{
     @Then("user clicks continue to next step")
     public void user_clicks_continue_to_next_step() {
         MobileUtilities.wait(2);
-        guestEnPage.continueToNext.click();
+        shopPage.continueToNext.click();
     }
 
     @Then("verify the user should see shopping fee and COD fee")
     public void verify_the_user_should_see_shopping_fee_and_COD_fee() {
         MobileUtilities.wait(1);
-        Assert.assertTrue(guestEnPage.subtotal.isDisplayed());
-        Assert.assertTrue(guestEnPage.subtotal.isDisplayed());
+        Assert.assertTrue(shopPage.subtotal.isDisplayed());
+        Assert.assertTrue(shopPage.subtotal.isDisplayed());
     }
 
     @Then("user should choose category for PLP")
     public void user_should_choose_category_for_PLP() {
-        guestEnPage.firstPLP.click();
+        shopPage.firstPLP.click();
 
     }
 
     @Then("verify the user on PLP")
     public void verify_the_user_on_PLP() {
         MobileUtilities.wait(2);
-        Assert.assertTrue(guestEnPage.headerPLP.isDisplayed());
+        Assert.assertTrue(shopPage.headerPLP.isDisplayed());
     }
 
     @Then("verify the user proceed as a guest user")
     public void verify_the_user_proceed_as_a_guest_user() {
         MobileUtilities.wait(5);
-        System.out.println("guestEnPage.homePage.isDisplayed() = " + guestEnPage.homePage.isDisplayed());
-//        System.out.println("guestEnPage.homePage2.isDisplayed() = " + guestEnPage.homePage2.isDisplayed());
+        System.out.println("shopPage.homePage.isDisplayed() = " + shopPage.homePage.isDisplayed());
+//        System.out.println("shopPage.homePage2.isDisplayed() = " + shopPage.homePage2.isDisplayed());
         System.out.println("searchBox = " + searchBox.isDisplayed());
-        //Assert.assertTrue(guestEnPage.homePage.isDisplayed());
+        //Assert.assertTrue(shopPage.homePage.isDisplayed());
+    }
+
+    @Then("user will navigates to settings and changes language")
+    public void user_will_navigates_to_settings_and_changes_language() {
+        moreButton.click();
+        morePage.settings.click();
+        morePage.changeLanguage.click();
+        morePage.arabicLanguage.click();
+
+
+    }
+
+    @Then("verify language changed")
+    public void verify_language_changed() {
+        MobileUtilities.wait(3);
+        System.out.println("homeHeaderArabic.isDisplayed() = " + homeHeaderArabic.isDisplayed());
+        Assert.assertTrue(homeHeaderArabic.isDisplayed());
+
     }
 
 }

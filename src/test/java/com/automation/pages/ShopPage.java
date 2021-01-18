@@ -1,17 +1,12 @@
 package com.automation.pages;
 
-import com.automation.utilities.Driver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class GuestEnPage extends BasePage{
+public class ShopPage extends BasePage {
 
-    public GuestEnPage(){
-        PageFactory.initElements(new AppiumFieldDecorator(Driver.get()), this);
-    }
-
+    @FindBy(name = "Shop")
+    public MobileElement shopButton;
 
     @FindBy(id = "SingleRowProductCell.titleLabel")
     public MobileElement selectProduct;
@@ -28,12 +23,6 @@ public class GuestEnPage extends BasePage{
     @FindBy(id = "CartItemCell.checkboxButton")
     public MobileElement markFirstProduct;
 
-    @FindBy(id = "TabSelectionView.rightButton")
-    public MobileElement addToWishlistFromCart;
-
-    @FindBy(id = "TopNotifyView.descriptionLabel")
-    public MobileElement addedWishlistTopUpMsg;
-
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Back\"]")
     public MobileElement backToPDP;
 
@@ -42,6 +31,12 @@ public class GuestEnPage extends BasePage{
 
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Cancel\"]")
     public MobileElement cancelSearch;
+
+    @FindBy(id = "TabSelectionView.rightButton")
+    public MobileElement addToWishlistFromCart;
+
+    @FindBy(id = "TopNotifyView.descriptionLabel")
+    public MobileElement addedWishlistTopUpMsg;
 
     @FindBy(id = "BadgeBarButtonItem.wishlistBarButton")
     public MobileElement wishlistButton;
@@ -54,12 +49,6 @@ public class GuestEnPage extends BasePage{
 
     @FindBy(id = "ProductDetailCTAView.favoriteButton")
     public MobileElement getAddToWishlistFromPDP;
-
-    @FindBy(id = "GamesHubController.GamesHubFeedCell.1")
-    public MobileElement secondChannel;
-
-    @FindBy(id = "GameImageCell.0")
-    public MobileElement gameImageConnect;
 
     @FindBy(id = "PaymentOverlayView.nextStepButton")
     public MobileElement checkout;
@@ -155,18 +144,8 @@ public class GuestEnPage extends BasePage{
     @FindBy(id = "HeaderView.titleLabel")
     public MobileElement headerPLP;
 
-    @FindBy(className = "UITableTextAccessibilityElement")
-    public MobileElement homePage;
-
-    @FindBy(id = "FeaturedCell.pageControl")
-    public MobileElement homePage2;
-
-    @FindBy(id = "Next")
-    public MobileElement nextButton;
-
     @FindBy(id = "SearchableItemTableViewCell.0")
     public MobileElement countrySelection;
-
 
 
 }
